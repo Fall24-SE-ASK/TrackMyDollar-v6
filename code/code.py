@@ -157,6 +157,11 @@ def capture_income(message):
     income.process_income_input(message, bot)
 
 
+@bot.message_handler(commands=['setRemind'])
+def set_reminder(message):
+    bot.reply_to(message, "Hello! Use /remind YYYY-MM-DD-HH:MM <Reminder Message> to set a reminder. Make sure to use the 24-hour format.")
+
+
 # not used
 def addUserHistory(chat_id, user_record):
     global user_list
