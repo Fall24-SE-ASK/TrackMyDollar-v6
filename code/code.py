@@ -21,6 +21,8 @@ import receipt
 from datetime import datetime
 from jproperties import Properties
 
+import sendEmailStats
+
 configs = Properties()
 
 with open('user.properties', 'rb') as read_prop:
@@ -155,6 +157,11 @@ def command_income(message):
 @bot.message_handler(func=lambda message: message.text.isdigit())
 def capture_income(message):
     income.process_income_input(message, bot)
+
+
+@bot.message_handler(commands=['sendEmailStats'])
+def command_sendEmailStats(message):
+    sendEmailStats.run(message, bot)
 
 
 # not used
