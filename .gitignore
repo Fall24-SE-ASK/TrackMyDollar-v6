@@ -134,4 +134,4 @@ dmypy.json
 # Generated files
 expense_record.json
 code/data.csv
-
+ecb_*.zip
