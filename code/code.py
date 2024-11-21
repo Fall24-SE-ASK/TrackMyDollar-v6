@@ -61,6 +61,12 @@ def start_and_menu_command(m):
     bot.send_message(chat_id, text_intro)
     return True
 
+@bot.message_handler(commands=["currencies"])
+def command_currencies(message):
+    currencies = helper.get_currencies()
+    reply_message = 'Below is the list of currencies supported:\n\n' + '\n'.join(currencies)
+    reply_message += '\n\nUse the appopriate currency symbol when adding an expense (eg. 500 INR)'
+    bot.send_message(message.chat.id, reply_message)
 
 # defines how the /add command has to be handled/processed
 @bot.message_handler(commands=['add'])

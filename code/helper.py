@@ -61,7 +61,8 @@ commands = {
     'extract': 'Extract data into CSV',
     'sendEmail': 'Email CSV to user',
     'receipt': 'Show the receipt for the day',
-    'income': 'Add income for the month'
+    'income': 'Add income for the month',
+    'currencies': 'Show the list of currencies supported'
 }
 
 dateFormat = '%d-%b-%Y'
@@ -80,6 +81,14 @@ def getTransactionsForChat(chat_id):
         return user_data[str(chat_id)].get('data', [])
     return []
 
+def get_currency_converter():
+    currency_file_name = f"ecb_{date.today():%Y%m%d}.zip"
+    if not os.path.isfile(currency_file_name):
+        ssl_context = ssl.create_default_context(cafile=certifi.where())
+        with urllib.request.urlopen(SINGLE_DAY_ECB_URL, context=ssl_context) as response, open(currency_file_name, "wb") as out_file:
+            out_file.write(response.read())
+    c = CurrencyConverter(currency_file_name)
+    return c
 
 # Function to convert currency
 def convert_currency(amount, from_currency, to_currency):
@@ -87,16 +96,16 @@ def convert_currency(amount, from_currency, to_currency):
     if from_currency == to_currency:
         return amount
     
-    currency_file_name = f"ecb_{date.today():%Y%m%d}.zip"
-    if not os.path.isfile(currency_file_name):
-        ssl_context = ssl.create_default_context(cafile=certifi.where())
-        with urllib.request.urlopen(SINGLE_DAY_ECB_URL, context=ssl_context) as response, open(currency_file_name, "wb") as out_file:
-            out_file.write(response.read())
-    c = CurrencyConverter(currency_file_name)
+    c = get_currency_converter()
     if from_currency in c.currencies and to_currency in c.currencies:
         return round(c.convert(amount, from_currency, to_currency), 2)
     else:
         raise ValueError(f"Unsupported currency conversion from {from_currency} to {to_currency}")
+
+def get_currencies():
+    "Returns the list of currencies supported by the bot"
+    c = get_currency_converter()
+    return sorted(c.currencies)
 
 # Function to load .json expense record data
 def read_json():
