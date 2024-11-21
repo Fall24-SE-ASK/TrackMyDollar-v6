@@ -34,7 +34,7 @@ jobs:
         uses: schneegans/dynamic-badges-action@v1.7.0
         with:
           auth: ${{ secrets.GIST_SECRET }}
-          gistID: f90d8ff63781978b73c28561177358b3
+          gistID: 15d3ab1238848f946ed98c192fb45195
           filename: coverage.json
           label: Coverage
           message: ${{ env.COVERAGE }}%  # Set the percentage value
@@ -58,7 +58,7 @@ jobs:
         uses: schneegans/dynamic-badges-action@v1.7.0
         with:
           auth: ${{ secrets.GIST_SECRET }}
-          gistID: 6e6740fb4d21afa29af5a1eba71cedba
+          gistID: c440db3fed64acd19235da2713aa8c7f
           filename: Static_code_analysis.json
           label: Static Code Analysis
           message: ${{ env.STATIC_CODE_STATUS }}
@@ -82,7 +82,7 @@ jobs:
         uses: schneegans/dynamic-badges-action@v1.7.0
         with:
           auth: ${{ secrets.GIST_SECRET }}
-          gistID: e9d969e042f2cc3e639dbac2a074ba92
+          gistID: 3e60ee211c19e4f20d7c8bb5736f9361
           filename: Security_scan.json
           label: Security Scan
           message: ${{ env.SECURITY_STATUS }}

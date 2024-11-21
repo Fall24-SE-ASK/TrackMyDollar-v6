@@ -1,19 +1,19 @@
 # 💰 TrackMyDollar V5.0 - Budget On The Go(BOTGo) 💰
 
-![TrackMyDollar Project](https://github.com/sainath199/MyDollarBot-BOTGo/blob/main/docs/mytrackmydollar.png)
+![TrackMyDollar Project](https://github.com/Fall24-SE-ASK/TrackMyDollar-v6/blob/main/docs/mytrackmydollar.png)
 
 ![MIT license](https://img.shields.io/badge/License-MIT-green.svg)
 [![Platform](https://img.shields.io/badge/Platform-Telegram-blue)](https://desktop.telegram.org/)
 ![GitHub](https://img.shields.io/badge/Language-Python-blue.svg)
-[![GitHub contributors](https://img.shields.io/github/contributors/sainath199/MyDollarBot-BOTGo)](https://github.com/sainath199/MyDollarBot-BOTGo/graphs/contributors)
-[![Test and Formatting](https://github.com/sainath199/MyDollarBot-BOTGo/actions/workflows/test.yml/badge.svg)](https://github.com/sainath199/MyDollarBot-BOTGo/actions/workflows/test.yml)
-[![Coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/sainath199/f90d8ff63781978b73c28561177358b3/raw/coverage.json)](https://github.com/sainath199/MyDollarBot-BOTGo/actions/workflows/test.yml)
-[![Static Code Analysis](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/sainath199/6e6740fb4d21afa29af5a1eba71cedba/raw/Static_code_analysis.json)](https://github.com/sainath199/MyDollarBot-BOTGo/actions/workflows/test.yml)
-[![Security Scans](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/sainath199/e9d969e042f2cc3e639dbac2a074ba92/raw/Security_scan.json)](https://github.com/sainath199/MyDollarBot-BOTGo/actions/workflows/test.yml)
+[![GitHub contributors](https://img.shields.io/github/contributors/Fall24-SE-ASK/TrackMyDollar-v6)](https://github.com/Fall24-SE-ASK/TrackMyDollar-v6/graphs/contributors)
+[![Test and Formatting](https://github.com/Fall24-SE-ASK/TrackMyDollar-v6/actions/workflows/test.yml/badge.svg)](https://github.com/Fall24-SE-ASK/TrackMyDollar-v6/actions/workflows/test.yml)
+[![Coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/ajith05/15d3ab1238848f946ed98c192fb45195/raw/coverage.json)](https://github.com/Fall24-SE-ASK/TrackMyDollar-v6/actions/workflows/test.yml)
+[![Static Code Analysis](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/ajith05/c440db3fed64acd19235da2713aa8c7f/raw/Static_code_analysis.json)](https://github.com/Fall24-SE-ASK/TrackMyDollar-v6/actions/workflows/test.yml)
+[![Security Scans](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/ajith05/3e60ee211c19e4f20d7c8bb5736f9361/raw/Security_scan.json)](https://github.com/Fall24-SE-ASK/TrackMyDollar-v6/actions/workflows/test.yml)
 
 
 <!-- [![codecov](https://codecov.io/gh/sak007/MyDollarBot-BOTGo/branch/main/graph/badge.svg?token=5AYMR8MNMP)](https://codecov.io/gh/sak007/MyDollarBot-BOTGo) -->
-[![GitHub issues](https://img.shields.io/github/issues/sainath199/MyDollarBot-BOTGo)](https://github.com/sainath199/MyDollarBot-BOTGo/issues)
+[![GitHub issues](https://img.shields.io/github/issues/Fall24-SE-ASK/TrackMyDollar-v6)](https://github.com/Fall24-SE-ASK/TrackMyDollar-v6/issues)
 ![Fork](https://img.shields.io/github/forks/anuj672/MyDollarBot-BOTGo)
 
 <hr>
@@ -43,11 +43,11 @@ With simple commands, this bot allows you to:
 
 
 ## What more can be done?
-Check out the issue list [here](https://github.com/sainath199/MyDollarBot-BOTGo/issues) to see what more can be done to make MyDollarBot better. 
+Check out the issue list [here](https://github.com/Fall24-SE-ASK/TrackMyDollar-v6/issues) to see what more can be done to make MyDollarBot better. 
 
 ## Demo
 
-[![Watch the Demo](https://img.youtube.com/vi/j7wsJHVlurg/0.jpg)](https://www.youtube.com/watch?v=j7wsJHVlurg)
+[![Watch the Demo](https://img.youtube.com/vi/LZnSmxAyVUo/0.jpg)](https://www.youtube.com/watch?v=LZnSmxAyVUo)
 
 ## Installation and Quick Start guide
 
@@ -139,15 +139,16 @@ Contributions are welcome! Please read the CONTRIBUTING.md for more details.
 ## Notes:
 You can download and install the Telegram desktop application for your system from the following site: https://desktop.telegram.org/
 
-## Authors (Iteration 5)
-- Sainath Gorige
-- Mona Sree Muppala
-- Vishal Reddy Devireddy
+## Authors (Iteration 6)
+- Ajith Kanumuri
+- Suhas Adidela
+- Venkata Krishna Mangapuram
   
 <hr>
 <p>Title:'Track My Dollar'</p>
-<p>Version: '4.2'</p>
+<p>Version: '6.0'</p>
 <p>Description: 'An easy to use Telegram Bot to track everyday expenses'</p>
+<p>Authors(Iteration 5):'Sainath, Mona, Vishal'</p>
 <p>Authors(Iteration 4):'Anuj, Bhavesh, Jash, Vaibhavi'</p>
 <p>Authors(Iteration 3):'Vraj, Alex, Leo, Prithvish, Seeya'</p>
 <p>Authors(Iteration 2):'Athithya, Subramanian, Ashok, Zunaid, Rithik'</p>
