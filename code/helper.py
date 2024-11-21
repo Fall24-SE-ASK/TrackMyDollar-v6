@@ -313,6 +313,16 @@ def isCategoryBudgetByCategoryAvailable(chatId, category):
         return False
     return category in data.keys()
 
+def isCategoryBudgetAvailable(chat_id):
+    """
+    Check if the category budget is available for any category
+    """
+    data = getCategoryBudget(chat_id)
+    if data is None:
+        return False
+    else:
+        return True
+
 
 def get_user_preferred_currency(chat_id):
     """
