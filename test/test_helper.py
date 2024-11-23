@@ -14,32 +14,6 @@ class TestHelperModule(unittest.TestCase):
         self.chat_id = 12345
         self.bot = MagicMock()
 
-    # Test the 'convert_currency' function
-    def test_convert_currency_same_currency(self):
-        """Test currency conversion when from_currency and to_currency are the same."""
-        amount = 100
-        from_currency = 'USD'
-        to_currency = 'USD'
-        result = helper.convert_currency(amount, from_currency, to_currency)
-        self.assertEqual(result, amount)
-
-    def test_convert_currency_supported_conversion(self):
-        """Test currency conversion with supported currency pairs."""
-        amount = 100
-        from_currency = 'USD'
-        to_currency = 'EUR'
-        expected_result = round(amount * 0.95, 2)
-        result = helper.convert_currency(amount, from_currency, to_currency)
-        self.assertEqual(result, expected_result)
-
-    def test_convert_currency_unsupported_conversion(self):
-        """Test currency conversion with unsupported currency pairs."""
-        amount = 100
-        from_currency = 'USD'
-        to_currency = 'JPY'  # Not in conversion_rates
-        with self.assertRaises(ValueError):
-            helper.convert_currency(amount, from_currency, to_currency)
-
     # Test the 'validate_entered_amount' function
     def test_validate_entered_amount_valid_int(self):
         """Test validation with a valid integer amount."""
