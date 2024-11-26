@@ -21,10 +21,12 @@ import receipt
 from datetime import datetime
 from jproperties import Properties
 
+
+import sendEmailStats
 from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.triggers.date import DateTrigger
 from datetime import datetime, timedelta
-# import sendEmailStats
+import sendEmailStats
 import setReminder
 
 
@@ -163,6 +165,11 @@ def command_income(message):
 def capture_income(message):
     income.process_income_input(message, bot)
 
+
+
+@bot.message_handler(commands=['sendEmailStats'])
+def command_sendEmailStats(message):
+    sendEmailStats.run(message, bot)
 
 @bot.message_handler(commands=['setRemind'])
 def set_reminder(message):
