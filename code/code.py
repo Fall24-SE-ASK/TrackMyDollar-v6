@@ -21,6 +21,13 @@ import receipt
 from datetime import datetime
 from jproperties import Properties
 
+from apscheduler.schedulers.background import BackgroundScheduler
+from apscheduler.triggers.date import DateTrigger
+from datetime import datetime, timedelta
+# import sendEmailStats
+import setReminder
+
+
 configs = Properties()
 
 with open('user.properties', 'rb') as read_prop:
@@ -155,6 +162,18 @@ def command_income(message):
 @bot.message_handler(func=lambda message: message.text.isdigit())
 def capture_income(message):
     income.process_income_input(message, bot)
+
+
+@bot.message_handler(commands=['setRemind'])
+def set_reminder(message):
+    bot.reply_to(message, "Hello! Use /remind YYYY-MM-DD-HH:MM <Reminder Message> to set a reminder. Make sure to use the 24-hour format.")
+
+
+# Reminder command
+@bot.message_handler(commands=['remind'])
+def reminder(message):
+    setReminder.run_set_reminder(message, bot)
+
 
 
 # not used
