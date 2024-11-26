@@ -24,8 +24,8 @@ from jproperties import Properties
 from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.triggers.date import DateTrigger
 from datetime import datetime, timedelta
-import sendEmailStats
-import code
+# import sendEmailStats
+# import code
 
 
 # Initialize the APScheduler
@@ -78,10 +78,10 @@ def run_set_reminder(message, bot):
             replace_existing=True   # this job will replace if there is another job with the same id
         )
 
-        bot.reply_to(message, f"Reminder set for {reminder_datetime.strftime('%Y-%m-%d %H:%M:%S')} for {reminder_message}")
+        bot.reply_to(message, f"Reminder set for {reminder_datetime.strftime('%Y-%m-%d-%H:%M:%S')} for {reminder_message}")
     
     except (ValueError, IndexError):
-        bot.reply_to(message, "Invalid format! Use /remind YYYY-MM-DD HH:MM (24-hour format).")
+        bot.reply_to(message, "Invalid format! Use /remind YYYY-MM-DD-HH:MM (24-hour format).")
 
 
 # Function to send the reminder
