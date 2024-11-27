@@ -1,6 +1,6 @@
 # 💰 TrackMyDollar V5.0 - Budget On The Go(BOTGo) 💰
 
-![TrackMyDollar Project](https://github.com/Fall24-SE-ASK/TrackMyDollar-v6/blob/main/docs/mytrackmydollar.png)
+![TrackMyDollar Project](docs/mytrackmydollar.png)
 
 ![MIT license](https://img.shields.io/badge/License-MIT-green.svg)
 [![Platform](https://img.shields.io/badge/Platform-Telegram-blue)](https://desktop.telegram.org/)
