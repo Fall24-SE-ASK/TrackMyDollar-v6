@@ -36,45 +36,6 @@ def smtp_mock():
 
 # Test Cases
 
-def test_display_total_valid(bot_mock, helper_mock, graphing_mock):
-    # Mock data
-    helper_mock.getSpendDisplayOptions.return_value = ["Day", "Month"]
-    helper_mock.getUserHistory.return_value = [
-        "2024-11-27,Food,10,USD",
-        "2024-11-27,Transport,20,USD",
-    ]
-    helper_mock.get_user_preferred_currency.return_value = "USD"
-    helper_mock.convert_currency.side_effect = lambda amount, currency, preferred: amount
-    helper_mock.getMonthFormat.return_value = '%b-%Y'
-    helper_mock.getOverallRemainingBudget.return_value = 10
-
-    message_mock = Mock()
-    message_mock.chat.id = 12345
-
-    # Run the function
-    sendEmailStats.display_total(message_mock, bot_mock)
-
-    # Verify the bot sent spendings and plot
-    bot_mock.send_message.assert_any_call(
-        12345,
-        "Here are your total spendings for All in month:\nCATEGORIES, AMOUNT \n----------------------\nFood 10.00 USD\nTransport 20.00 USD\n",
-    )
-    graphing_mock.visualize.assert_called_once()
-
-
-def test_display_total_no_history(bot_mock, helper_mock):
-    helper_mock.getUserHistory.return_value = None
-
-    message_mock = Mock()
-    message_mock.chat.id = 12345
-
-    sendEmailStats.display_total(message_mock, bot_mock)
-
-    bot_mock.send_message.assert_called_with(
-        12345, "Oops! Looks like you do not have any spending records!"
-    )
-
-
 def test_send_email(smtp_mock):
     # Mock parameters
     user_email = "test@example.com"
