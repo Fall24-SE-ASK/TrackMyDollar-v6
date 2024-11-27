@@ -55,35 +55,29 @@ The below instructions can be followed in order to set-up this bot at your end i
 
 1. Clone this repository to your local system.
 
-2. Start a terminal session in the directory where the project has been cloned. Run the following command to install the required dependencies:
-```
-  pip install -r requirements.txt
-```
-
-3. In Telegram, search for "BotFather". Click on "Start", and enter the following command:
+2. In Telegram, search for "BotFather". Click on "Start", and enter the following command:
 ```
   /newbot
 ```
 Follow the instructions on screen and choose a name for your bot. After this, select a username for your bot that ends with "bot".
 
-4. BotFather will now confirm the creation of your bot and provide a TOKEN to access the HTTP API - copy and save this token for future use.
+3. BotFather will now confirm the creation of your bot and provide a TOKEN to access the HTTP API - copy and save this token for future use.
 
-5. Copy the token provided by the bot and add/replace it in the user.properties file (in the format api_token=<your_token>).
+4. Copy the token provided by the bot and add/replace it in the user.properties file (in the format api_token=<your_token>).
 
-6. In the directory where this repo has been cloned, please run the below command to execute a bash script to run the Telegram Bot:
-```
-   ./run.sh
-```
-(OR)
-```
-   bash run.sh
-```
+5. Install [docker desktop](https://docs.docker.com/desktop/) or [docker engine](https://docs.docker.com/engine/) in your local system if you don't already have it installed
 
-(Please Note: You may require to run `chmod +x run.sh` on mac/linux)
+6. In the directory where this repo has been cloned, please run the below command to build a docker image, run it as container and see its logs:
+```
+   docker compose up -d
+   docker compose logs bot -f
+```
 
 A successful run will generate a message on your terminal that says "TeleBot: Started polling." 
 
 7. In the Telegram app, search for your newly created bot by entering the username and open the same. Now, on Telegram, enter the "/start" or "/menu" command, and you are all set to track your expenses!
+
+Note: To stop the bot, run `docker compose down` in the repo directory.
 
 ## Usage
 Here’s an overview of some key commands:
