@@ -1,4 +1,4 @@
-# 💰 TrackMyDollar V5.0 - Budget On The Go(BOTGo) 💰
+# 💰 TrackMyDollar V6.0 - Budget On The Go(BOTGo) 💰
 
 ![TrackMyDollar Project](docs/mytrackmydollar.png)
 
