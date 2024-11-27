@@ -18,6 +18,7 @@ import sendEmail
 import add_recurring
 import income
 import receipt
+import calender
 from datetime import datetime
 from jproperties import Properties
 
@@ -155,7 +156,7 @@ def capture_date_input(message):
     try:
         selected_date = datetime.strptime(message.text, '%Y-%m-%d')
         bot.send_message(message.chat.id, f"Date {selected_date.date()} selected. Retrieving transactions...")
-        helper.show_spend_for_date(selected_date, message.chat.id, bot)  # Call the helper function here
+        calender.show_spend_for_date(selected_date, message.chat.id, bot)  # Call the helper function here
     except ValueError:
         bot.send_message(message.chat.id, "Invalid date format! Please use YYYY-MM-DD.")
 
