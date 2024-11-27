@@ -30,8 +30,11 @@ def scheduler_mock():
 def test_run_set_reminder_valid(bot_mock, scheduler_mock):
     # Mocking a valid message object
     message_mock = Mock()
-    message_mock.text = "/remind 2024-11-27-15:30 Groceries"
+    future_time = (datetime.now() + timedelta(hours=1)).strftime("%Y-%m-%d-%H:%M")
+    message_mock.text = f"/remind {future_time} Groceries"
     message_mock.chat.id = 12345
+    future_time_in_id = datetime.strptime(future_time, "%Y-%m-%d-%H:%M").strftime("%Y-%m-%d %H:%M:%S")
+    expected_id = f'reminder_{message_mock.chat.id}_{future_time_in_id}'
 
     # Mock the DateTrigger object
     with patch("setReminder.DateTrigger") as DateTriggerMock:
@@ -46,7 +49,7 @@ def test_run_set_reminder_valid(bot_mock, scheduler_mock):
                 func=setReminder.send_reminder,
                 trigger=trigger_instance,
                 args=[12345, "Groceries", bot_mock],
-                id=f"reminder_12345_2024-11-27 15:30:00",
+                id=expected_id,
                 replace_existing=True,
             )
 
