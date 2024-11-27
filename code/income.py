@@ -1,15 +1,4 @@
-import income
-import re
 import helper
-
-# Conversion rates can be modified based on the requirements
-conversion_rates = {
-    'USD': 1.0,  # Base currency
-    'INR': 0.012,  # Example conversion rate to USD
-    'EUR': 1.1,   # Example conversion rate to USD
-}
-
-# income.py
 
 
 # Set the user's income

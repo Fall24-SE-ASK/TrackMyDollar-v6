@@ -1,17 +1,12 @@
 import re
 import json
 import os
-from datetime import datetime
+import urllib.request
+import certifi
+import ssl
+from datetime import date
+from currency_converter import SINGLE_DAY_ECB_URL, CurrencyConverter
 
-# Supported currency conversion rates (manually defined)
-conversion_rates = {
-    ('USD', 'INR'): 83.0,
-    ('INR', 'USD'): 0.012,
-    ('USD', 'EUR'): 0.95,
-    ('EUR', 'USD'): 1.05,
-    ('INR', 'EUR'): 0.0114,
-    ('EUR', 'INR'): 87.5,
-}
 
 choices = ['Date', 'Category', 'Cost']
 plot = ['Bar with budget', 'Pie', 'Bar without budget']
@@ -66,7 +61,8 @@ commands = {
     'extract': 'Extract data into CSV',
     'sendEmail': 'Email CSV to user',
     'receipt': 'Show the receipt for the day',
-    'income': 'Add income for the month'
+    'income': 'Add income for the month',
+    'currencies': 'Show the list of currencies supported'
 }
 
 dateFormat = '%d-%b-%Y'
@@ -85,17 +81,31 @@ def getTransactionsForChat(chat_id):
         return user_data[str(chat_id)].get('data', [])
     return []
 
+def get_currency_converter():
+    currency_file_name = f"ecb_{date.today():%Y%m%d}.zip"
+    if not os.path.isfile(currency_file_name):
+        ssl_context = ssl.create_default_context(cafile=certifi.where())
+        with urllib.request.urlopen(SINGLE_DAY_ECB_URL, context=ssl_context) as response, open(currency_file_name, "wb") as out_file:
+            out_file.write(response.read())
+    c = CurrencyConverter(currency_file_name)
+    return c
 
 # Function to convert currency
 def convert_currency(amount, from_currency, to_currency):
-    """Convert the given amount from one currency to another using predefined rates."""
+    """Convert the given amount from one currency to another using the rates fetched for that day."""
     if from_currency == to_currency:
         return amount
-    conversion_key = (from_currency, to_currency)
-    if conversion_key in conversion_rates:
-        return round(amount * conversion_rates[conversion_key], 2)
+    
+    c = get_currency_converter()
+    if from_currency in c.currencies and to_currency in c.currencies:
+        return round(c.convert(amount, from_currency, to_currency), 2)
     else:
         raise ValueError(f"Unsupported currency conversion from {from_currency} to {to_currency}")
+
+def get_currencies():
+    "Returns the list of currencies supported by the bot"
+    c = get_currency_converter()
+    return sorted(c.currencies)
 
 # Function to load .json expense record data
 def read_json():
